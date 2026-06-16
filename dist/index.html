@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Free Digital Wallet Hub&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-950 text-slate-100 min-h-screen font-sans"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto p-6 max-w-5xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="flex justify-between items-center border-b border-slate-800 pb-6 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-2xl font-black tracking-tight text-indigo-400"&gt;🌐 OPEN LEDGER DIGITAL BANK&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-xs text-slate-400 mt-0.5"&gt;100% Free • Autonomous Sandbox Ecosystem&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="simulateDay()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-5 py-2.5 rounded-lg shadow-lg shadow-indigo-900/30 transition-all active:scale-95"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>⏳ Simulate Next Day</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Access Input Bar --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-6 shadow-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2"&gt;Scan Physical Card Key (UID Lookup Link):&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="cardUidInput" value="CARD_SECURE_KEY_77" class="bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 w-full text-indigo-300 font-mono tracking-widest focus:outline-none focus:border-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="loadCardDashboard()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 rounded-lg transition-colors whitespace-nowrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Sync Digital Account</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Hidden Container dynamically toggled on validation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="dashboard" class="hidden grid grid-cols-1 md:grid-cols-3 gap-6"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Card Position Column --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Balance &amp; Core Account Metrics --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-xl border border-slate-800 shadow-xl relative overflow-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-2xl"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[10px] font-bold tracking-widest text-indigo-400 uppercase bg-indigo-950/50 px-2 py-0.5 rounded border border-indigo-800/30"&gt;Secure Token Wrapper&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-md font-mono text-slate-400 mt-3" id="displayUid"&gt;UID: --&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="my-6 space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-slate-400 font-medium"&gt;Free Available Liquidity&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-3xl font-extrabold text-white font-mono mt-0.5" id="valBalance"&gt;$0.00&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-xs text-rose-400 font-medium"&gt;Total Ledger Debt Statement&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-2xl font-bold text-rose-400 font-mono mt-0.5" id="valDebt"&gt;$0.00&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Dynamic Preference Configurator Panel --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-900 p-5 rounded-xl border border-slate-800 shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-sm font-bold text-slate-200 mb-3"&gt;⚙️ User Interest Preferences&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label class="block text-xs text-slate-400 mb-2"&gt;Adjust your annual percentage debt yield accumulation rate directly:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;select id="interestDropdown" class="bg-slate-950 border border-slate-700 text-sm rounded p-2 text-white font-mono w-full focus:outline-none focus:border-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="0.00"&gt;0% (Interest Free Sandbox)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="0.02"&gt;2% Standard Yield Rate&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="0.05"&gt;5% Baseline Target APR&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;option value="1.20"&gt;120% Volatile High-Stakes Yield&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="saveInterestRate()" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 font-semibold rounded text-indigo-400 border border-slate-700 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Apply</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Administrative Overrides Console (Forgiveness Actions) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-900 p-5 rounded-xl border border-rose-900/40 shadow-md bg-gradient-to-b from-slate-900 to-rose-950/10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-sm font-bold text-rose-400 mb-1"&gt;🛠️ Global Account Override Controls&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[11px] text-slate-400 mb-3"&gt;Modify system variables for this account context directly without card alterations.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="overrideDebt(0)" class="w-full bg-rose-950/40 hover:bg-rose-900/40 text-rose-300 border border-rose-800/40 text-xs font-bold py-2 rounded transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>💝 Forgive Total Debt Balance (Reset to $0)</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex gap-2 pt-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="number" id="customDebtInput" placeholder="Set custom value" class="bg-slate-950 text-xs text-slate-200 border border-slate-700 rounded p-2 font-mono w-full focus:outline-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button onclick="overrideDebt(document.getElementById('customDebtInput').value)" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 rounded text-slate-300 font-semibold border border-slate-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>Override</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Ledger Details Display Grid --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="md:col-span-2 space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Asset Matrix Viewport --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-sm font-bold mb-3 tracking-wide uppercase text-slate-300"&gt;Equity Asset Portfolio&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="overflow-x-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;table class="w-full text-left text-xs text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;thead class="uppercase bg-slate-950 text-slate-400 border-b border-slate-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3"&gt;Asset Target&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3"&gt;Shares Bound&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3"&gt;Market Rate&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3 text-right"&gt;Aggregate Holding Value&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;tbody id="portfolioTable"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Multi-asset Stock Tracker --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-sm font-bold mb-3 tracking-wide uppercase text-slate-300"&gt;Global Equities Index (100+ Asset Sandbox)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="overflow-y-auto max-h-64 border border-slate-950 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;table class="w-full text-left text-xs text-slate-400"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;thead class="uppercase bg-slate-950 text-slate-400 sticky top-0 border-b border-slate-800"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3"&gt;Ticker&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3"&gt;Asset Profile&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;th class="p-3 text-right"&gt;Value Rate&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;tbody id="marketTable"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Interface Logic Framework Controller --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const host = window.location.origin;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function loadCardDashboard() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uid = document.getElementById('cardUidInput').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(!uid) return alert("Card unique lookup ID value required.");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const res = await fetch(`${host}/api/user/${uid}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = await res.json();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (data.error) return alert("System linkage exception: " + data.error);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('displayUid').innerText = `Card Lookup Key: ${data.user.card_uid}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('valBalance').innerText = `$${data.user.balance.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('valDebt').innerText = `$${data.user.debt.toFixed(2)}`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('interestDropdown').value = data.user.interest_rate.toFixed(2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pTable = document.getElementById('portfolioTable');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pTable.innerHTML = data.holdings.length ? '' : `&lt;tr&gt;&lt;td colspan="4" class="p-3 text-center text-slate-600"&gt;No active assets mapped to this digital layout index.&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data.holdings.forEach(h =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>pTable.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr class="border-b border-slate-800 hover:bg-slate-800/40 font-mono text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3 font-sans font-bold text-white"&gt;${h.symbol} &lt;span class="text-xs font-normal text-slate-500"&gt;(${h.name})&lt;/span&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3"&gt;${h.shares}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3"&gt;$${h.current_price.toFixed(2)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3 text-right text-indigo-400 font-bold"&gt;$${(h.shares * h.current_price).toFixed(2)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('dashboard').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>loadMarketIndices();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function saveInterestRate() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uid = document.getElementById('cardUidInput').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const rate = document.getElementById('interestDropdown').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const res = await fetch(`${host}/api/update-interest`, {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>method: 'POST',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headers: { 'Content-Type': 'application/json' },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>body: JSON.stringify({ card_uid: uid, interest_rate: rate })</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if((await res.json()).success) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>loadCardDashboard();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function overrideDebt(targetVal) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const uid = document.getElementById('cardUidInput').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(targetVal === '' || isNaN(targetVal)) return alert("Please specify a valid financial balancing target.");</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const res = await fetch(`${host}/api/override-debt`, {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>method: 'POST',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headers: { 'Content-Type': 'application/json' },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>body: JSON.stringify({ card_uid: uid, target_debt: targetVal })</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = await res.json();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(data.success) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('customDebtInput').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>loadCardDashboard();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function loadMarketIndices() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const res = await fetch(`${host}/api/stocks`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const stocks = await res.json();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const mTable = document.getElementById('marketTable');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mTable.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stocks.forEach(s =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>mTable.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr class="border-b border-slate-950 hover:bg-slate-900/40 font-mono text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3 font-bold text-indigo-400"&gt;${s.symbol}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3 font-sans text-slate-400"&gt;${s.name}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-3 text-right font-bold text-white"&gt;$${s.current_price.toFixed(2)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function simulateDay() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const res = await fetch(`${host}/api/simulate-day`, { method: 'POST' });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = await res.json();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(data.success) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(!document.getElementById('dashboard').classList.contains('hidden')) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await loadCardDashboard();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>await loadMarketIndices();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>loadMarketIndices();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
